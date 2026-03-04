@@ -17,12 +17,12 @@ public class Student {
 
     //Constructores
 
-    public Student (){
+    public Student() {
 
     }
 
-    public Student(String email){
-    this.email = email;  //This funciona como un apuntador
+    public Student(String email) {
+        this.email = email;  //This funciona como un apuntador
     }
 
     public Student(int id, String name, String lastName, String email, boolean status) {
@@ -39,13 +39,16 @@ public class Student {
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
-        this.id =id;
+        this.id = id;
     }
-     public  String getName() {
+
+    public String getName() {
         return name;
 
     }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -75,13 +78,17 @@ public class Student {
     }
 
 
-
     // methods
-    private Student createStudent(Student student){ //Inyeccion de dependencias
-            System.out.println("Enter the student ID");
+    private Student createStudent(Student student) {//Inyeccion de dependencias
+        System.out.println("Enter the student ID");
+        while (!sc.hasNextInt()) {
+            System.out.println("The ID must be a number. Please try again: ");
+            sc.next();
+        }
         int id = sc.nextInt();
         student.setId(id);
         sc.nextLine();
+
 
         System.out.println("Enter the student name");
         String name = sc.nextLine();
@@ -91,37 +98,48 @@ public class Student {
         String lastName = sc.nextLine();
         student.setLastName(lastName);
 
+
         System.out.println("Enter the student email address");
         String email = sc.nextLine();
-        student.setEmail(email);
+        while (!email.contains("@") || !email.contains(".")) {
+            System.out.println("Error: Invalid email format. Must contain '@' and a domain (ej: estudiante@cesde.edu.co)");
+            System.out.print("Try again: ");
+        }
 
 
-        return student;
-
-    }
+            student.setEmail(email);
 
 
-    private void getStudentById(int id){
-        if (id == this.id){
-            System.out.println("Id: " + this.id + "\n"+
-                    "Name: " + this.name + "\n"+
-                    "Email: " + this.email + "\n"+
-                    "Statu" +  this.status);
-        }else{
-            System.out.println("Id not found");
+            return student;
+
+        }
+
+
+
+        private void getStudentById ( int id){
+            if (id == this.id) {
+                System.out.println("Id: " + this.id + "\n" +
+                        "Name: " + this.name + "\n" +
+                        "Email: " + this.email + "\n" +
+                        "Status" + this.status);
+            } else {
+                System.out.println("Id not found");
+            }
+
+        }
+
+
+        private List<Student> getStudents () {
+            return null;
+        }
+
+        private Student updateStudent (Student student){
+            return student;
+        }
+
+        private void deleteStudent ( int id){
+
         }
 
     }
 
-    private List<Student> getStudents(){
-        return null;
-    }
-
-    private Student updateStudent(Student student){
-        return student;
-    }
-
-    private void deleteStudent(int id){
-
-    }
-}

@@ -83,6 +83,10 @@ public class Teacher {
 
     private Teacher createTeacher(Teacher teacher) {
         System.out.println("Enter the teacher ID");
+        while (!sc.hasNextInt()){
+            System.out.println("The ID must be a number. Please try again: ");
+            sc.next();
+        }
         int id = sc.nextInt();
         teacher.setId(id);
         sc.nextLine();
@@ -97,6 +101,11 @@ public class Teacher {
 
         System.out.println("Enter the teacher email address");
         String email = sc.nextLine();
+        while (!email.contains("@") || !email.contains(".")) {
+            System.out.println("Error: Invalid email format. Must contain '@' and a domain (ej: profesor@cesde.edu.co)");
+            System.out.print("Try again: ");
+        }
+
         teacher.setEmail(email);
 
         System.out.println("Enter the teacher specialty");

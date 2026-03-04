@@ -98,6 +98,10 @@ public class Course {
     private Course createCourse(Course course) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         System.out.println("Enter id of course: ");
+        while (!sc.hasNextInt()){
+            System.out.println("The ID must be a number. Please try again: ");
+            sc.next();
+        }
         course.setId(sc.nextInt());
         sc.nextLine();
 

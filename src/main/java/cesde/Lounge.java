@@ -75,19 +75,24 @@ public class Lounge {
 
     private Lounge createLounge (Lounge lounge) {
         System.out.println("Enter id of lounge ");
+        while (!sc.hasNextInt()){
+            System.out.println("The ID must be a number. Please try again: ");
+            sc.next();
+        }
         int id = sc.nextInt();
         lounge.setId(id);
         sc.nextLine();
 
-        System.out.println("Enter classroom ");
+        System.out.println("Enter classroom in numbers");
+
         int classroom = sc.nextInt();
         lounge.setClassroom(classroom);
 
-        System.out.println("Enter floor ");
+        System.out.println("Enter floor in numbers");
         int floor = sc.nextInt();
         lounge.setFloor(floor);
 
-        System.out.println("Enter capacity ");
+        System.out.println("Enter capacity in numbers");
         int capacity = sc.nextInt();
         lounge.setCapacity(capacity);
 

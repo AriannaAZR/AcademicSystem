@@ -52,6 +52,10 @@ public class School {
 
     private School createSchool(School school) {
         System.out.println("Enter id of School: ");
+        while (!sc.hasNextInt()){
+            System.out.println("The ID must be a number. Please try again: ");
+            sc.next();
+        }
         int id = sc.nextInt();
         school.setId(id);
         sc.nextLine();

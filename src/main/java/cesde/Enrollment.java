@@ -83,6 +83,10 @@ public class Enrollment {
     private Enrollment createEnrollment(Enrollment enrollment){
 
         System.out.println("Enter id of enrollment");
+        while (!sc.hasNextInt()){
+            System.out.println("The ID must be a number. Please try again: ");
+            sc.next();
+        }
         int id= sc.nextInt();
         enrollment.setId(id);
         sc.nextLine();
