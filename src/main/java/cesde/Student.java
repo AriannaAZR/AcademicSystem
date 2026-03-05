@@ -79,7 +79,7 @@ public class Student {
 
 
     // methods
-    private Student createStudent(Student student) {//Inyeccion de dependencias
+    public Student createStudent(Student student) {//Inyeccion de dependencias
         System.out.println("Enter the student ID");
         while (!sc.hasNextInt()) {
             System.out.println("The ID must be a number. Please try again: ");
@@ -104,10 +104,11 @@ public class Student {
         while (!email.contains("@") || !email.contains(".")) {
             System.out.println("Error: Invalid email format. Must contain '@' and a domain (ej: estudiante@cesde.edu.co)");
             System.out.print("Try again: ");
+            email = sc.nextLine();
         }
 
-
-            student.setEmail(email);
+        student.setEmail(email);
+        student.setStatus(true);
 
 
             return student;
@@ -116,10 +117,11 @@ public class Student {
 
 
 
-        private void getStudentById ( int id){
+        public void getStudentById ( int id){
             if (id == this.id) {
                 System.out.println("Id: " + this.id + "\n" +
                         "Name: " + this.name + "\n" +
+                        "Last Name: " + this.lastName + "\n" +
                         "Email: " + this.email + "\n" +
                         "Status" + this.status);
             } else {
@@ -129,15 +131,15 @@ public class Student {
         }
 
 
-        private List<Student> getStudents () {
+        public List<Student> getStudents () {
             return null;
         }
 
-        private Student updateStudent (Student student){
+        public Student updateStudent (Student student){
             return student;
         }
 
-        private void deleteStudent ( int id){
+        public void deleteStudent ( int id){
 
         }
 

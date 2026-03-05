@@ -19,8 +19,10 @@ public class Enrollment {
 
     //Constructores
 
+    public Enrollment() {}
 
-    public Enrollment(int id, LocalDate date, Student student, Course course, Lounge louge, boolean status) {
+
+    public Enrollment(int id, LocalDate date, Student student, Course course, Lounge lounge, boolean status) {
         this.id = id;
         this.date = date;
         this.student = student;
@@ -80,7 +82,7 @@ public class Enrollment {
         this.status = status;
     }
 
-    private Enrollment createEnrollment(Enrollment enrollment){
+    public Enrollment createEnrollment(Enrollment enrollment){
 
         System.out.println("Enter id of enrollment");
         while (!sc.hasNextInt()){
@@ -112,14 +114,16 @@ public class Enrollment {
         return enrollment;
     }
 
-    private void getEnrollmentById(int id){
-        if (id == this.id){
-            System.out.println("Id: " + this.id + "\n"+
-                    "Date: " + this.date + "\n"+
-                    "Name of student: " + this.student + "\n"+
-                    "Course" +  this.course + "\n" +
-                    "Lounge: " + this.lounge + "\n"+
+    public void getEnrollmentById(int id) {
+        if (id == this.id) {
+            System.out.println("Id: " + this.id + "\n" +
+                    "Date: " + this.date + "\n" +
+                    "Name of student: " + this.student.getName() + "\n" +
+                    "Course" + this.course.getName() + "\n" +
+                    "Lounge: " + this.lounge.getId() + "\n" +
                     "Status: " + this.status);
+        }else {
+            System.out.println("Id not found.");
         }
     }
 }

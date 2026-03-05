@@ -26,9 +26,10 @@ public class Course {
         this.name = name;
     }
 
-    public Course(int id, String program, School school, Teacher teacher, LocalDate starDate, LocalDate endDate) {
+    public Course(int id,String name, String program, School school, Teacher teacher, LocalDate starDate, LocalDate endDate) {
         this.id = id;
         this.program = program;
+        this.name = name;
         this.school = school;
         this.teacher = teacher;
         this.startDate = starDate;
@@ -95,7 +96,7 @@ public class Course {
 
     // methods
 
-    private Course createCourse(Course course) {
+    public Course createCourse(Course course) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         System.out.println("Enter id of course: ");
         while (!sc.hasNextInt()){
@@ -134,17 +135,17 @@ public class Course {
         String endDate = sc.nextLine();
         course.setEndDate(LocalDate.parse(endDate, formatter));
 
-            return this;
+            return course;
         }
 
 
-        private void getCourseById(int id){
+        public void getCourseById(int id){
         if (id == this.id){
             System.out.println("Id: " + this.id + "\n"+
                     "Name: " + this.name + "\n"+
                     "Program: " + this.program + "\n"+
-                    "School" +  this.school + "\n" +
-                    "Teacher: " + this.teacher + "\n"+
+                    "School" +  this.school.getSchoolName() + "\n" +
+                    "Teacher: " + this.teacher.getName() + "\n"+
                     "StartDate: " + this.startDate + "\n"+
                     "EndDate" +  this.endDate);
         }else{

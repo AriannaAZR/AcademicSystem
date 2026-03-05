@@ -17,7 +17,8 @@ public class School {
         this.schoolName = schoolName;
     }
 
-    public School(int id, String director) {
+    public School(int id, String director, String schoolName) {
+        this.schoolName = schoolName;
         this.id = id;
         this.director = director;
     }
@@ -50,7 +51,7 @@ public class School {
     }
 
 
-    private School createSchool(School school) {
+    public School createSchool(School school) {
         System.out.println("Enter id of School: ");
         while (!sc.hasNextInt()){
             System.out.println("The ID must be a number. Please try again: ");
@@ -71,7 +72,7 @@ public class School {
      return school;
     }
 
-    private void getSchoolById(int id){
+    public void getSchoolById(int id){
         if (id == this.id){
             System.out.println("Id: " + this.id + "\n"+
                     "Name of school: " + this.schoolName + "\n"+

@@ -20,7 +20,8 @@ public class Lounge {
         this.id = id;
     }
 
-    public Lounge( int classroom, int floor, int capacity, boolean status) {
+    public Lounge( int id, int classroom, int floor, int capacity, boolean status) {
+        this.id = id;
         this.classroom = classroom;
         this.floor = floor;
         this.capacity = capacity;
@@ -73,7 +74,8 @@ public class Lounge {
     // methods
 
 
-    private Lounge createLounge (Lounge lounge) {
+    public Lounge createLounge (Lounge lounge) {
+
         System.out.println("Enter id of lounge ");
         while (!sc.hasNextInt()){
             System.out.println("The ID must be a number. Please try again: ");
@@ -95,6 +97,7 @@ public class Lounge {
         System.out.println("Enter capacity in numbers");
         int capacity = sc.nextInt();
         lounge.setCapacity(capacity);
+        sc.nextLine();
 
         return lounge;
 
@@ -103,9 +106,9 @@ public class Lounge {
     private void getLoungeById(int id) {
         if (id == this.id){
             System.out.println("Id: " + this.id + "\n" +
-            "Classroom: " + this.classroom + "\n"+
+            "Classroom: #" + this.classroom + "\n"+
             "Floor: "+ this.floor + "\n"+
-            "Capacity: " + this.capacity + "\n"+
+            "Capacity: " + this.capacity + " students"+ "\n"+
             "Status: " + this.status);
         }else{
             System.out.println("Id not found");
