@@ -119,7 +119,7 @@ public class Enrollment {
             System.out.println("Id: " + this.id + "\n" +
                     "Date: " + this.date + "\n" +
                     "Name of student: " + this.student.getName() + "\n" +
-                    "Course" + this.course.getName() + "\n" +
+                    "Course: " + this.course.getName() + "\n" +
                     "Lounge: " + this.lounge.getId() + "\n" +
                     "Status: " + this.status);
         }else {

@@ -147,7 +147,7 @@ public class Course {
                     "School" +  this.school.getSchoolName() + "\n" +
                     "Teacher: " + this.teacher.getName() + "\n"+
                     "StartDate: " + this.startDate + "\n"+
-                    "EndDate" +  this.endDate);
+                    "EndDate: " +  this.endDate);
         }else{
             System.out.println("Id not found");
         }
